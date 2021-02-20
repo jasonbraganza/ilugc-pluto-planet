@@ -2,13 +2,13 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
+  #   push:
+  #     branches: [ main ]
+  #   pull_request:
+  #     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,19 +26,18 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-#       - name: Run a one-line script
-#         run: docker run -v "$(pwd)"/mount:/root/mount janusworx/ilugc-pluto-planet-alpine
+      #       - name: Run a one-line script
+      #         run: docker run -v "$(pwd)"/mount:/root/mount janusworx/ilugc-pluto-planet-alpine
 
       # Runs a set of commands using the runners shell
-#       - name: Run a multi-line script
-#         run: |
-#           echo Add other actions to build,
-#           echo test, and deploy your project.
+      #       - name: Run a multi-line script
+      #         run: |
+      #           echo Add other actions to build,
+      #           echo test, and deploy your project.
       - name: Building ILUGC planet
         run: |
           docker run -v "$(pwd)"/mount:/root/mount janusworx/ilugc-pluto-planet-alpine
           date > generated.txt
-          mv /root/mount/output/planet.news.html /root/mount/output/index.html
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add mount/output/*

@@ -38,7 +38,7 @@ jobs:
         run: |
           docker run -v "$(pwd)"/mount:/root/mount janusworx/ilugc-pluto-planet-alpine
           date > generated.txt
-          mv /mount/output/planet.news.html /mount/output/index.html
+          mv /root/mount/output/planet.news.html /root/mount/output/index.html
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add mount/output/*

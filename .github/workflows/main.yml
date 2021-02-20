@@ -44,7 +44,7 @@ jobs:
           # git commit -m "generated planet output"
           # git push
       - name: Pushes to another repository
-        uses: cpina/github-action-push-to-another-repository@master
+        uses: jasonbraganza/github-action-push-to-another-repository@master
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
